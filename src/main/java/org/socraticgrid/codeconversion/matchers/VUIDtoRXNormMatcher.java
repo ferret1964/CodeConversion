@@ -25,7 +25,7 @@ import org.w3c.dom.NodeList;
 public class VUIDtoRXNormMatcher extends BaseMatcher
 {
 
-    private String jenaServerURL = ""; //http://192.168.1.111:3030/data/sparql";
+    private String jenaServerURL = "";
     private static String JENA_QUERY = "?query=";
 
     public VUIDtoRXNormMatcher()
@@ -38,15 +38,16 @@ public class VUIDtoRXNormMatcher extends BaseMatcher
         this.jenaServerURL = url;
     }
 
+    @Override
     public void match(CodeSearch matchCd, List<CodeReference> out)
     {
-        
-        if ((matchCd.getSearchType()& SearchOptions.LITERAL_TargetSystem )>0 )
+
+        if ((matchCd.getSearchType() & SearchOptions.LITERAL_TargetSystem) > 0)
         {
             //Connect to server and push the request
             if (matchCd.getSystem().equalsIgnoreCase("VUID"))
             {
-                if (((matchCd.getSearchType() & SearchOptions.LITERAL_Code)>0) && ((matchCd.getSearchType() & SearchOptions.ANY_Display)>0))
+                if (((matchCd.getSearchType() & SearchOptions.LITERAL_Code) > 0) && ((matchCd.getSearchType() & SearchOptions.ANY_Display) > 0))
                 {
                     String rxCode = getRXNORM(matchCd.getCode());
                     if (rxCode != null)
@@ -106,7 +107,7 @@ public class VUIDtoRXNormMatcher extends BaseMatcher
 
             NodeList nodes = response.getElementsByTagName("literal");
 
-            System.out.println(nodes.getLength() + " nodes found");
+            Logger.getLogger(VUIDtoRXNormMatcher.class.getName()).log(Level.FINE, "{0} nodes found", nodes.getLength());
 
             if (nodes.getLength() > 0)
             {
@@ -132,13 +133,16 @@ public class VUIDtoRXNormMatcher extends BaseMatcher
 
     private Document request(String query) throws Exception
     {
-        Document out = null;
+        Document out;
         //System.out.println("JENA query@UTF-8= "+ enc);
 
         String sparqlrs = jenaServerURL + JENA_QUERY + URLEncoder.encode(query, "UTF-8");
 
         //Default Format is XML
-        System.out.println("SPARQLEP+query= " + sparqlrs);
+        //System.out.println("SPARQLEP+query= " + sparqlrs);
+
+        Logger.getLogger(VUIDtoRXNormMatcher.class.getName()).log(Level.FINE, "SPARQLEP+query= {0}", sparqlrs);
+
 
         URL sparqlr = new URL(sparqlrs);
 

@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="Service Pack 1"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\Jerry Goodnough\Dropbox\Cognitive\CodeConversion"/>
+    <property name="user.dir" value="C:\Users\Jerry Goodnough\Documents\GitHub\CodeConversion"/>
     <property name="java.runtime.version" value="1.7.0_21-b11"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.7.0_21\jre\lib\endorsed"/>
@@ -62,10 +62,10 @@
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
   <testcase time="0" classname="org.socraticgrid.codeconversion.matchers.MatchContractTest" name="testIsMatchAny"/>
-  <testcase time="0.001" classname="org.socraticgrid.codeconversion.matchers.MatchContractTest" name="testIsFilter"/>
+  <testcase time="0" classname="org.socraticgrid.codeconversion.matchers.MatchContractTest" name="testIsFilter"/>
   <testcase time="0" classname="org.socraticgrid.codeconversion.matchers.MatchContractTest" name="testSetFilter"/>
-  <testcase time="0" classname="org.socraticgrid.codeconversion.matchers.MatchContractTest" name="testSupportsTargetSystem"/>
-  <testcase time="0.001" classname="org.socraticgrid.codeconversion.matchers.MatchContractTest" name="testAddMatchContract"/>
-  <testcase time="0" classname="org.socraticgrid.codeconversion.matchers.MatchContractTest" name="testAddTargetSystem"/>
-  <testcase time="0.001" classname="org.socraticgrid.codeconversion.matchers.MatchContractTest" name="testSetMatchAny"/>
+  <testcase time="0.001" classname="org.socraticgrid.codeconversion.matchers.MatchContractTest" name="testSupportsTargetSystem"/>
+  <testcase time="0" classname="org.socraticgrid.codeconversion.matchers.MatchContractTest" name="testAddMatchContract"/>
+  <testcase time="0.001" classname="org.socraticgrid.codeconversion.matchers.MatchContractTest" name="testAddTargetSystem"/>
+  <testcase time="0" classname="org.socraticgrid.codeconversion.matchers.MatchContractTest" name="testSetMatchAny"/>
 </testsuite>

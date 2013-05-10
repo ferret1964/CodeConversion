@@ -11,6 +11,8 @@ import static junit.framework.TestCase.assertEquals;
 import junit.framework.TestSuite;
 import org.junit.runner.RunWith;
 import org.socraticgrid.codeconversion.elements.CodeReference;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -25,9 +27,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 {
     "classpath:Test-CodeConversion.xml"
 })
-public class SearchProcessorTest extends TestCase
+public class SearchProcessorTest extends TestCase implements ApplicationContextAware
 {
-    
+    private ApplicationContext ctx;
+    public void setApplicationContext(ApplicationContext context)
+    {
+        this.ctx = context;
+    }
+
     public SearchProcessorTest()
     {
         
@@ -40,19 +47,7 @@ public class SearchProcessorTest extends TestCase
     }
     
 
-    /**
-     * Test of getSerchProcessor method, of class SearchProcessor.
-     */
-    @Test
-    public void testGetSerchProcessor()
-    {
-        System.out.println("getSerchProcessor");
-        String context = "classpath:Test-CodeConversion.xml";
-  
-        SearchProcessor result = SearchProcessor.getSerchProcessor(context);
-        assertNotNull(result);
-  
-    }
+
 
     /**
      * Test of translateCode method, of class SearchProcessor.
@@ -63,9 +58,8 @@ public class SearchProcessorTest extends TestCase
         String sourceSystem = "vuid";
         String sourceCode = "4005766";
         String sourceText = "";
-        String context = "classpath:Test-CodeConversion.xml";
-  
-        SearchProcessor instance = SearchProcessor.getSerchProcessor(context);
+          
+        SearchProcessor instance = (SearchProcessor) ctx.getBean("SearchProcessor");
         
         CodeReference result = instance.translateCode(sourceSystem, sourceCode, sourceText);
      
@@ -84,9 +78,8 @@ public class SearchProcessorTest extends TestCase
         String sourceSystem = "vuid";
         String sourceCode = "4005766";
         String sourceText = "";
-        String context = "classpath:Test-CodeConversion.xml";
-  
-        SearchProcessor instance = SearchProcessor.getSerchProcessor(context);
+   
+        SearchProcessor instance = (SearchProcessor) ctx.getBean("SearchProcessor");
         
         CodeReference result = instance.findCode(targetSystem, sourceSystem, sourceCode, sourceText);
         assertNotNull(result);

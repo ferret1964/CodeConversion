@@ -17,31 +17,13 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import org.socraticgrid.codeconversion.elements.NullCodeReference;
 import org.socraticgrid.codeconversion.elements.SearchOptions;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import javax.annotation.PostConstruct;
 
 public class SearchProcessor
 {
 
-    public static SearchProcessor getSerchProcessor(String context)
-    {
-        SearchProcessor out;
-        if (singletonMap.containsKey(context))
-        {
-            out = singletonMap.get(context);
-        }
-        else
-        {
-            ApplicationContext ctx = new ClassPathXmlApplicationContext(context);
-            out = (SearchProcessor) ctx.getBean("SearchProcessor");
-            singletonMap.put(context, out);
-        }
 
-        return out;
 
-    }
-    private static HashMap<String, SearchProcessor> singletonMap = new HashMap<String, SearchProcessor>();
     private List<SearchPipeline> pipeLineList;
     private Cache<CodeSearch, List<CodeReference>> searchCache = null;
     private boolean onSearchFailUseOrginal = false;
