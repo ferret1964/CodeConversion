@@ -23,8 +23,20 @@ public interface CodeMatcher {
         - Support for display 
      
      */
+    /**
+     *
+     * @return
+     */
     public MatchContract getMatchContract();
     
-    public void match(CodeSearch matchCd,List<CodeReference> out);
+    /**
+     *
+     *
+     * @param matchCd
+     * @param out
+     * @return  
+     */
+    
+    public boolean match(CodeSearch matchCd, List<CodeReference> out);
  
 }

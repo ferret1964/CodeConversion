@@ -14,7 +14,14 @@ import org.socraticgrid.codeconversion.exceptions.InitializationException;
  */
 public abstract class BaseMatcher implements CodeMatcher
 {
+    /**
+     *
+     */
     protected MatchContract contract = new MatchContract();
+    /**
+     *
+     * @return
+     */
     public MatchContract getMatchContract()
     {
         return contract;
@@ -22,10 +29,20 @@ public abstract class BaseMatcher implements CodeMatcher
     
     //public void match(CodeSearch matchCd,List<CodeReference> out);
  
+    /**
+     *
+     * @param is
+     * @throws InitializationException
+     */
     public void initialize(InputStream is)  throws InitializationException
     {
         
     }
+    /**
+     *
+     * @param props
+     * @throws InitializationException
+     */
     public void initialize(Properties props)  throws InitializationException
     {
         

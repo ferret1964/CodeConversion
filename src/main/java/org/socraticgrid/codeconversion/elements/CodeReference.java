@@ -13,18 +13,34 @@ import org.socraticgrid.codeconversion.elements.Code;
 public class CodeReference extends Code {
 
    
+    /**
+     *
+     * @param system
+     * @param code
+     * @param display
+     * @param source
+     */
     public CodeReference(String system, String code, String display, CodeSource source)
     {
         super(system, code, display);
         this.source=source;
     }
     
+    /**
+     *
+     * @param system
+     * @param code
+     * @param display
+     */
     public CodeReference(String system, String code, String display)
     {
         super(system, code, display);
         this.source=null;
     }
     
+    /**
+     *
+     */
     protected CodeSource source;
 
     /**

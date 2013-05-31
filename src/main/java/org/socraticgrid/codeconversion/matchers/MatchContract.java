@@ -14,6 +14,9 @@ public class MatchContract
 {
     
     private boolean matchAny;
+    /**
+     *
+     */
     protected HashSet<String> systems = new HashSet<String>();
     /**
      * Get the value of matchAny
@@ -27,6 +30,10 @@ public class MatchContract
         return (systems.size()>0)||matchAny||filter;
     
     }
+    /**
+     *
+     * @return
+     */
     public boolean isMatchAny()
     {
         return matchAny;
@@ -63,6 +70,10 @@ public class MatchContract
         this.matchAny = matchAny;
     }
     
+    /**
+     *
+     * @param other
+     */
     public void addMatchContract(MatchContract other)
     {
         if (other.isFilter())
@@ -81,6 +92,11 @@ public class MatchContract
     }
 
         
+    /**
+     *
+     * @param system
+     * @return
+     */
     public boolean supportsTargetSystem(String system)
     {
         if (matchAny)
@@ -93,6 +109,10 @@ public class MatchContract
         }
     }
     
+    /**
+     *
+     * @param system
+     */
     public void addTargetSystem(String system)
     {
         systems.add(system);

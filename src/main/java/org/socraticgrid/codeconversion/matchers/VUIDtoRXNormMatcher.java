@@ -28,18 +28,34 @@ public class VUIDtoRXNormMatcher extends BaseMatcher
     private String jenaServerURL = "";
     private static String JENA_QUERY = "?query=";
 
+    /**
+     *
+     */
     public VUIDtoRXNormMatcher()
     {
         contract.addTargetSystem("RxNorm");
     }
 
+    /**
+     *
+     * @param url
+     */
     public void setJenaServerURL(String url)
     {
         this.jenaServerURL = url;
     }
 
+    /**
+     *
+     *
+     * @param matchCd
+     * @param out
+     * @return true if match the pipeline can/should continue
+     * 
+     */
+    
     @Override
-    public void match(CodeSearch matchCd, List<CodeReference> out)
+    public boolean match(CodeSearch matchCd, List<CodeReference> out)
     {
 
         if ((matchCd.getSearchType() & SearchOptions.LITERAL_TargetSystem) > 0)
@@ -57,6 +73,7 @@ public class VUIDtoRXNormMatcher extends BaseMatcher
                 }
             }
         }
+        return true;
     }
     //private static String JENA_EP = "http://192.168.1.111:3030/data/sparql?query=";
     //------------------------------------
@@ -90,7 +107,6 @@ public class VUIDtoRXNormMatcher extends BaseMatcher
      *
      * @param vuid default.
      * @return
-     * @throws Exception
      */
     public String getRXNORM(String vuid)
     {

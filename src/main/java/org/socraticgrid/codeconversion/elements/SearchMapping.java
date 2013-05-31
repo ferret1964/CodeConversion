@@ -10,11 +10,20 @@ package org.socraticgrid.codeconversion.elements;
  */
 public class SearchMapping {
 
+    /**
+     *
+     * @param system
+     * @param code
+     */
     public SearchMapping(String system, String code)
     {
         this.code=code;
         this.system=system;
     }
+    /**
+     *
+     * @param cs
+     */
     public SearchMapping(CodeSearch cs)
     {
         this.code=cs.getCode();

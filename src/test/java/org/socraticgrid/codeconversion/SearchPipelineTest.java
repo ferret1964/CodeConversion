@@ -161,8 +161,8 @@ public class SearchPipelineTest extends TestCase implements ApplicationContextAw
         LinkedList<CodeReference> out = new LinkedList<CodeReference>();
         SearchPipeline instance = (SearchPipeline) ctx.getBean("ExamplePipeline");
   
-        List result = instance.match(matchCd, out);
-        assertTrue( result.size()>0);
+        instance.match(matchCd, out);
+        assertTrue( out.size()>0);
         
         //308416
        

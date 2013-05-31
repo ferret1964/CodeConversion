@@ -14,6 +14,9 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType
 public class Code {
 
+    /**
+     *
+     */
     public Code() {
         system = "";
         code = "";
@@ -21,12 +24,23 @@ public class Code {
 
     }
 
+    /**
+     *
+     * @param system
+     * @param code
+     */
     public Code(String system, String code) {
         this.system = system;
         this.code = code;
         display = "";
     }
 
+    /**
+     *
+     * @param system
+     * @param code
+     * @param display
+     */
     public Code(String system, String code, String display) {
         this.system = system;
         this.code = code;
@@ -50,8 +64,17 @@ public class Code {
     public void setDisplay(String display) {
         this.display = display;
     }
+    /**
+     *
+     */
     protected String system;
+    /**
+     *
+     */
     protected String code;
+    /**
+     *
+     */
     protected String display;
 
 
@@ -73,7 +96,7 @@ public class Code {
     /**
      * Set the value of CodeReference
      *
-     * @param CodeReference new value of CodeReference
+     * @param code 
      */
     public void setCode(String code) {
         this.code = code;

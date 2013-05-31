@@ -38,6 +38,10 @@ public class MapMatch extends BaseMatcher
     
   
     private Resource mapFileResource=null;
+    /**
+     *
+     * @param res
+     */
     public void setMapFileResource(Resource res)
     {
         this.mapFileResource=res;
@@ -46,6 +50,11 @@ public class MapMatch extends BaseMatcher
     
 
     
+    /**
+     *
+     * @throws IOException
+     * @throws InitializationException
+     */
     @PostConstruct
     public void initialize() throws IOException,InitializationException
     {
@@ -60,7 +69,15 @@ public class MapMatch extends BaseMatcher
 
     }
     
-    public void match(CodeSearch matchCd, List<CodeReference> finalOut)
+    /**
+     *
+     *
+     * @param matchCd
+     * @param out
+     * @return  
+     */
+    
+    public boolean match(CodeSearch matchCd, List<CodeReference> out)
     {
 
         //First Find the Map for each the Target System
@@ -68,7 +85,6 @@ public class MapMatch extends BaseMatcher
         //Simplest case is a Straight System/Code Source 
         int searchType = matchCd.getSearchType();
 
-        List<CodeReference> out = null;
 
         if ((searchType & SearchOptions.LITERAL_TargetSystem) != 0)
         {
@@ -271,11 +287,17 @@ public class MapMatch extends BaseMatcher
         {
             throw new UnsupportedOperationException("Not supported yet.");
         }
-        finalOut.addAll(out);
+        out.addAll(out);
+        return true;
     }
 
     /*
      * Find a specific code in a specific target system
+     */
+    /**
+     *
+     * @param matchCd
+     * @return
      */
     protected List<CodeReference> match_TL_CL_DA(CodeSearch matchCd)
     {
@@ -297,6 +319,11 @@ public class MapMatch extends BaseMatcher
     /*
      * Regex Code search in a specific target system.
      */
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TL_CR_DA(CodeSearch matchCd)
     {
         LinkedList<CodeReference> out = new LinkedList<CodeReference>();
@@ -312,6 +339,11 @@ public class MapMatch extends BaseMatcher
 
     /*
      * Copy all codes mapped for a target system.
+     */
+    /**
+     *
+     * @param matchCd
+     * @return
      */
     protected List<CodeReference> match_TL_CA_DA(CodeSearch matchCd)
     {
@@ -331,6 +363,11 @@ public class MapMatch extends BaseMatcher
         return out;
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TL_CL_DL(CodeSearch matchCd)
     {
         LinkedList<CodeReference> out = new LinkedList<CodeReference>();
@@ -350,6 +387,11 @@ public class MapMatch extends BaseMatcher
         return out;
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TL_CR_DL(CodeSearch matchCd)
     {
         LinkedList<CodeReference> out = new LinkedList<CodeReference>();
@@ -363,6 +405,11 @@ public class MapMatch extends BaseMatcher
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TL_CA_DL(CodeSearch matchCd)
     {
         LinkedList<CodeReference> out = new LinkedList<CodeReference>();
@@ -376,6 +423,11 @@ public class MapMatch extends BaseMatcher
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TL_CL_DR(CodeSearch matchCd)
     {
         LinkedList<CodeReference> out = new LinkedList<CodeReference>();
@@ -389,6 +441,11 @@ public class MapMatch extends BaseMatcher
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TL_CR_DR(CodeSearch matchCd)
     {
         LinkedList<CodeReference> out = new LinkedList<CodeReference>();
@@ -402,6 +459,11 @@ public class MapMatch extends BaseMatcher
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TL_CA_DR(CodeSearch matchCd)
     {
         LinkedList<CodeReference> out = new LinkedList<CodeReference>();
@@ -419,6 +481,11 @@ public class MapMatch extends BaseMatcher
      * Search all mappings for the requested code.
      */
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TA_CL_DA(CodeSearch matchCd)
     {
         
@@ -441,92 +508,182 @@ public class MapMatch extends BaseMatcher
         return out;
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TA_CR_DA(CodeSearch matchCd)
     {
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TA_CA_DA(CodeSearch matchCd)
     {
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TA_CL_DL(CodeSearch matchCd)
     {
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TA_CR_DL(CodeSearch matchCd)
     {
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TA_CA_DL(CodeSearch matchCd)
     {
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TA_CL_DR(CodeSearch matchCd)
     {
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TA_CR_DR(CodeSearch matchCd)
     {
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TA_CA_DR(CodeSearch matchCd)
     {
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
     // Regex based target system
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TR_CL_DA(CodeSearch matchCd)
     {
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TR_CR_DA(CodeSearch matchCd)
     {
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TR_CA_DA(CodeSearch matchCd)
     {
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TR_CL_DL(CodeSearch matchCd)
     {
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TR_CR_DL(CodeSearch matchCd)
     {
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TR_CA_DL(CodeSearch matchCd)
     {
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TR_CL_DR(CodeSearch matchCd)
     {
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TR_CR_DR(CodeSearch matchCd)
     {
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param matchCd
+     * @return
+     */
     protected List<CodeReference> match_TR_CA_DR(CodeSearch matchCd)
     {
         throw new UnsupportedOperationException("Search not supported yet.");
     }
 
+    /**
+     *
+     * @param is
+     * @throws InitializationException
+     */
     public void load(InputStream is) throws InitializationException
     {
         try
@@ -562,8 +719,14 @@ public class MapMatch extends BaseMatcher
         }
     }
 
+    /**
+     *
+     */
     public class TargetSystemCodeMap
     {
+        /**
+         *
+         */
         public HashMap<SearchMapping, CodeReference> SrchMap = new HashMap<SearchMapping, CodeReference>();
     }
 }
